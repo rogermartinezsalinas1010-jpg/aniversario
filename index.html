@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>6 Años Contigo ❤️</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background: #111;
+            font-family: Arial, sans-serif;
+        }
+
+        /* PANTALLA INICIAL */
+
+        #inicio {
+            position: fixed;
+            inset: 0;
+            background: linear-gradient(135deg, #1a0010, #5c1238, #16000d);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            z-index: 1000;
+            color: white;
+        }
+
+        #inicio h1 {
+            font-size: 42px;
+            margin: 0 20px 10px;
+        }
+
+        #inicio p {
+            font-size: 18px;
+            margin: 0 20px 35px;
+        }
+
+        #boton {
+            border: none;
+            padding: 18px 35px;
+            border-radius: 50px;
+            background: white;
+            color: #8b174f;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.4);
+        }
+
+        #boton:hover {
+            transform: scale(1.05);
+        }
+
+        /* PDF */
+
+        #pdf-container {
+            width: 100%;
+            height: 100vh;
+            display: none;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* BOTÓN DE MÚSICA */
+
+        #musica-control {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            z-index: 500;
+            display: none;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            border: none;
+            background: rgba(255,255,255,0.95);
+            font-size: 23px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        /* CORAZONES */
+
+        .corazon {
+            position: fixed;
+            bottom: -30px;
+            font-size: 22px;
+            pointer-events: none;
+            z-index: 2000;
+            animation: subir 5s linear forwards;
+        }
+
+        @keyframes subir {
+
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-100vh) scale(1.7);
+                opacity: 0;
+            }
+
+        }
+
+        @media (max-width: 600px) {
+
+            #inicio h1 {
+                font-size: 32px;
+            }
+
+            #inicio p {
+                font-size: 16px;
+            }
+
+            #boton {
+                font-size: 16px;
+                padding: 16px 28px;
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- PANTALLA INICIAL -->
+
+    <div id="inicio">
+
+        <h1>❤️ 6 Años Contigo ❤️</h1>
+
+        <p>
+            Una Pequeña Sorpresa Para La Mujer Que Amo.
+        </p>
+
+        <button id="boton" onclick="comenzar()">
+            🎵 COMENCEMOS MI AMOR
+        </button>
+
+    </div>
+
+
+    <!-- MÚSICA -->
+
+    <audio id="musica" loop>
+        <source src="nuestra-cancion.mp3" type="audio/mpeg">
+    </audio>
+
+
+    <!-- PDF -->
+
+    <div id="pdf-container">
+
+        <iframe
+            src="aniversario.pdf"
+            title="Nuestro aniversario">
+        </iframe>
+
+    </div>
+
+
+    <!-- CONTROL DE MÚSICA -->
+
+    <button id="musica-control" onclick="controlMusica()">
+        🔊
+    </button>
+
+
+    <script>
+
+        function comenzar() {
+
+            const musica = document.getElementById("musica");
+
+            musica.play();
+
+            document.getElementById("inicio").style.display = "none";
+
+            document.getElementById("pdf-container").style.display = "block";
+
+            document.getElementById("musica-control").style.display = "block";
+
+            crearCorazones();
+
+        }
+
+
+        function controlMusica() {
+
+            const musica = document.getElementById("musica");
+
+            const boton = document.getElementById("musica-control");
+
+            if (musica.paused) {
+
+                musica.play();
+
+                boton.innerHTML = "🔊";
+
+            } else {
+
+                musica.pause();
+
+                boton.innerHTML = "🔇";
+
+            }
+
+        }
+
+
+        function crearCorazones() {
+
+            setInterval(function() {
+
+                const corazon = document.createElement("div");
+
+                corazon.className = "corazon";
+
+                corazon.innerHTML = "❤️";
+
+                corazon.style.left =
+                    Math.random() * 100 + "vw";
+
+                corazon.style.fontSize =
+                    (15 + Math.random() * 25) + "px";
+
+                document.body.appendChild(corazon);
+
+                setTimeout(function() {
+
+                    corazon.remove();
+
+                }, 5000);
+
+            }, 700);
+
+        }
+
+    </script>
+
+</body>
+</html>
