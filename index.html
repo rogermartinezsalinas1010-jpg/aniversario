@@ -23,7 +23,7 @@ body {
     overflow-x: hidden;
 }
 
-/* CORAZONES */
+/* CORAZONES FLOTANTES */
 .heart {
     position: fixed;
     bottom: -30px;
@@ -102,8 +102,13 @@ h1 {
 }
 
 @keyframes latir {
-    0%,100% { transform: scale(1); }
-    50% { transform: scale(1.15); }
+    0%,100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
 }
 
 @keyframes aparecer {
@@ -111,13 +116,14 @@ h1 {
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
-/* CONTENIDO */
+/* SECCIONES */
 .seccion {
     min-height: 100vh;
     padding: 80px 20px;
@@ -140,13 +146,13 @@ h1 {
     line-height: 1.8;
 }
 
-/* FOTOS */
+/* GALERÍA */
 .galeria {
     width: 100%;
-    max-width: 900px;
+    max-width: 1000px;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
     margin-top: 30px;
 }
 
@@ -160,13 +166,13 @@ h1 {
 }
 
 .foto:hover {
-    transform: scale(1.03);
+    transform: scale(1.04);
 }
 
 /* CARTA */
 .carta {
     max-width: 750px;
-    background: rgba(255,255,255,.75);
+    background: rgba(255,255,255,.8);
     padding: 35px;
     border-radius: 25px;
     box-shadow: 0 10px 35px rgba(90,38,53,.12);
@@ -193,17 +199,36 @@ h1 {
     line-height: 1.7;
 }
 
+/* BOTÓN DEL VIDEO */
+.boton-video {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 17px 32px;
+    border-radius: 50px;
+    background: white;
+    color: #9b3454;
+    text-decoration: none;
+    font-size: 19px;
+    font-weight: bold;
+    box-shadow: 0 8px 25px rgba(0,0,0,.2);
+    transition: .3s;
+}
+
+.boton-video:hover {
+    transform: scale(1.08);
+}
+
 .firma {
     margin-top: 30px;
     font-size: 20px;
 }
 
 /* MÓVIL */
-@media (max-width: 600px) {
+@media (max-width: 700px) {
 
     .galeria {
-        grid-template-columns: 1fr;
-        max-width: 450px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
     }
 
     .seccion h2 {
@@ -219,18 +244,28 @@ h1 {
         font-size: 17px;
     }
 }
+
+@media (max-width: 430px) {
+
+    .galeria {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+    }
+}
 </style>
 </head>
 
 <body>
 
-<!-- AUDIO -->
+<!-- CANCIÓN -->
 <audio id="musica" loop>
     <source src="nuestra-cancion.mp3" type="audio/mpeg">
 </audio>
 
+
 <!-- PORTADA -->
 <section id="inicio">
+
     <div class="contenido-inicio">
 
         <div class="corazon-grande">❤️</div>
@@ -239,8 +274,9 @@ h1 {
 
         <p class="subtitulo">
             Tengo algo especial preparado para ti...
-            <br>
-            porque estos seis años merecen ser recordados. ❤️
+            <br><br>
+            Una pequeña sorpresa para recordar
+            todo lo que hemos vivido juntos. ❤️
         </p>
 
         <button class="boton" onclick="abrirRegalo()">
@@ -248,25 +284,39 @@ h1 {
         </button>
 
     </div>
+
 </section>
 
 
-<!-- HISTORIA -->
+<!-- NUESTRA HISTORIA -->
 <section class="seccion">
 
     <h2>Nuestra historia ❤️</h2>
 
     <p class="texto">
+
         Seis años pueden parecer mucho tiempo...
-        pero cuando se trata de nosotros,
+
+        <br><br>
+
+        Pero cuando se trata de nosotros,
         siento que han pasado demasiado rápido.
+
         <br><br>
-        Hemos compartido momentos increíbles,
-        momentos difíciles, risas, sueños,
-        aventuras y muchísimas historias.
+
+        Hemos compartido risas, sueños,
+        aventuras, momentos difíciles
+        y muchísimos recuerdos.
+
         <br><br>
-        Y si pudiera volver al principio,
-        volvería a elegirte.
+
+        Y entre todos esos momentos,
+        hay algo que nunca ha cambiado:
+
+        <br>
+
+        <strong>que sigo eligiéndote a ti.</strong>
+
     </p>
 
 </section>
@@ -278,19 +328,30 @@ h1 {
     <h2>Nuestros recuerdos 📸</h2>
 
     <p class="texto">
-        Cada fotografía guarda un momento,
-        pero todas juntas cuentan nuestra historia.
+        Nueve recuerdos de una historia
+        que todavía tiene muchísimas páginas
+        por escribir. ❤️
     </p>
 
     <div class="galeria">
 
-        <img src="foto1.png" class="foto" alt="Nuestro recuerdo 1">
+        <img src="foto1.jpeg" class="foto" alt="Nuestro recuerdo 1">
 
-        <img src="foto2.png" class="foto" alt="Nuestro recuerdo 2">
+        <img src="foto2.jpeg" class="foto" alt="Nuestro recuerdo 2">
 
-        <img src="foto3.png" class="foto" alt="Nuestro recuerdo 3">
+        <img src="foto3.jpeg" class="foto" alt="Nuestro recuerdo 3">
 
-        <img src="foto4.png" class="foto" alt="Nuestro recuerdo 4">
+        <img src="foto4.jpeg" class="foto" alt="Nuestro recuerdo 4">
+
+        <img src="foto5.jpeg" class="foto" alt="Nuestro recuerdo 5">
+
+        <img src="foto6.jpeg" class="foto" alt="Nuestro recuerdo 6">
+
+        <img src="foto7.jpeg" class="foto" alt="Nuestro recuerdo 7">
+
+        <img src="foto8.jpeg" class="foto" alt="Nuestro recuerdo 8">
+
+        <img src="foto9.jpeg" class="foto" alt="Nuestro recuerdo 9">
 
     </div>
 
@@ -331,13 +392,14 @@ h1 {
         </p>
 
         <p>
-            Te amo y espero que podamos seguir
-            escribiendo nuestra historia durante
-            muchos años más.
+            Si pudiera regresar al día en que
+            comenzó nuestra historia,
+            volvería a elegirte sin pensarlo.
         </p>
 
         <p>
-            Feliz aniversario, mi amor. ❤️
+            Feliz sexto aniversario, mi amor.
+            ❤️
         </p>
 
     </div>
@@ -353,13 +415,29 @@ h1 {
     <h2>6 años...</h2>
 
     <p>
-        Y todavía te elegiría una y mil veces.
+        Y todavía te elegiría
+        una y mil veces.
     </p>
 
     <p>
         Gracias por estos seis años
-        y por todo lo que todavía nos falta vivir.
+        y por todo lo que todavía
+        nos falta vivir.
     </p>
+
+
+    <!-- BOTÓN AL VIDEO -->
+
+    <a
+        class="boton-video"
+        href="https://drive.google.com/file/d/1Zdx_VfnGxVz12wvhjYOC-i_mrG-yv64d/view"
+        target="_blank"
+        rel="noopener noreferrer">
+
+        🎬 Tengo una última sorpresa para ti
+
+    </a>
+
 
     <div class="firma">
         Con todo mi amor ❤️
@@ -370,12 +448,16 @@ h1 {
 
 <script>
 
+/* INICIAR CANCIÓN AL ABRIR */
+
 function abrirRegalo() {
 
     const musica = document.getElementById("musica");
 
+    musica.volume = 0.7;
+
     musica.play().catch(function() {
-        console.log("El navegador bloqueó el audio automático.");
+        console.log("El navegador bloqueó la reproducción.");
     });
 
     window.scrollTo({
@@ -385,7 +467,7 @@ function abrirRegalo() {
 }
 
 
-/* CORAZONES FLOTANDO */
+/* CORAZONES FLOTANTES */
 
 function crearCorazon() {
 
@@ -393,9 +475,11 @@ function crearCorazon() {
 
     corazon.className = "heart";
 
-    corazon.innerHTML = Math.random() > 0.5 ? "❤️" : "💕";
+    corazon.innerHTML =
+        Math.random() > 0.5 ? "❤️" : "💕";
 
-    corazon.style.left = Math.random() * 100 + "vw";
+    corazon.style.left =
+        Math.random() * 100 + "vw";
 
     corazon.style.fontSize =
         (15 + Math.random() * 20) + "px";
